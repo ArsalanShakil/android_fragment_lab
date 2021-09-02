@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -19,15 +18,6 @@
         tools:text="Item"/>
 
     <TextView
-        android:id="@+id/PresidentDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        tools:text="Item"/>
-    <TextView
         android:id="@+id/PresidentStartdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,6 +28,15 @@
         tools:text="Item"/>
     <TextView
         android:id="@+id/PresidentEnddate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="Item"/>
+    <TextView
+        android:id="@+id/PresidentDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

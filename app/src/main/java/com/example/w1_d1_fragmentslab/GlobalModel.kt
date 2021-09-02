@@ -3,11 +3,10 @@ package com.example.w1_d1_fragmentslab
 import android.util.Log
 
 
-data class President(val name: String, val start: Int, val end: Int, val description: String) {
 
-}
 
 object GlobalModel {
+    data class President(val name: String, val start: Int, val end: Int, val description: String) {}
     val presidents: kotlin.collections.MutableList<President> = java.util.ArrayList()
 
     init {

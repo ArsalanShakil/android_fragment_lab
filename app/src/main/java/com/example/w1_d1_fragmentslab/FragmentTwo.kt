@@ -26,7 +26,7 @@ class FragmentTwo : Fragment(R.layout.fragment_two) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val position = requireArguments().getInt("pos")
 
-        val president = GlobalModel.presidents[position];
+        val president = GlobalModel.presidents[position]
         Log.d("USR", "Fragment 2, president $position")
         view.findViewById<TextView>(R.id.PresidentName).text = president.name
         view.findViewById<TextView>(R.id.PresidentDescription).text = president.description
