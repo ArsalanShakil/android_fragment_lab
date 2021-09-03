@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,10 +25,33 @@ class FragmentTwo : Fragment(R.layout.fragment_two) {
     private var param1: String? = null
     private var param2: String? = null
 
+
+    lateinit var  viewModel: MainViewModel
+
+
+    private val changeObserver =
+        Observer<String> {
+                value -> value?.let { viewModel.hitCount }
+        }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val position = requireArguments().getInt("pos")
 
         val president = GlobalModel.presidents[position]
+
+        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        viewModel.query.observe(viewLifecycleOwner, changeObserver)
+
+        viewModel.queryName(president.name)
+        Log.d("apiCall", viewModel.query.value.toString())
+        Log.d("apiCall", viewModel.hitCount.value.toString())
+        viewModel.hitCount.observe(
+            viewLifecycleOwner,{
+                val hitCountString = it.query.searchinfo.totalhits.toString()
+                view.findViewById<TextView>(R.id.PresidentHits).text = "hits: ${hitCountString}"
+            }
+        )
+
         Log.d("USR", "Fragment 2, president $position")
         view.findViewById<TextView>(R.id.PresidentName).text = president.name
         view.findViewById<TextView>(R.id.PresidentDescription).text = president.description
