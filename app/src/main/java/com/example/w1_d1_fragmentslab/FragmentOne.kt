@@ -87,9 +87,6 @@ class FragmentOne : Fragment(R.layout.fragment_one) {
                 holder.textField.text = GlobalModel.presidents[position].name
                 holder.textField.setOnClickListener {
                     Log.d("USR", "Clicked $position")
-                    viewModel.queryName("Trump")
-                    Log.d("apiCall", viewModel.query.value.toString())
-                    Log.d("apiCall", viewModel.hitCount.value.toString())
 
                     val bundle = bundleOf("pos" to position)
 
